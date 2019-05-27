@@ -1,0 +1,10 @@
+[package]
+name = "euler"
+version = "0.1.0"
+authors = ["tonamartinez <tonatiuh.martinez@globant.com>"]
+edition = "2018"
+
+[dependencies]
+
+[profile.dev]
+opt-level = 3
