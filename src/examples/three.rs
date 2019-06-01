@@ -64,6 +64,39 @@ pub fn is_prime_32(my_number: u32) -> bool {
 
 }
 
+pub fn get_primes(n: u64) -> Vec<u64> {
+  println!("THREE Start");
+
+  let mut p: u64 = 2;
+
+  let mut list: Vec<u64> = Vec::new();
+  let mut primes: Vec<u64> = Vec::new();
+  // let mut done: bool = false;
+
+  primes.push(2);
+
+  while p < n {
+    let mut i: u64 = 1;
+
+    while p * i <= n {
+      // println!("One: {}, {}, {}", &p, &i, &p * i);
+      list.push(p * i);
+      i += 1;
+    }
+
+    while p < n {
+      // println!("Two: {}, {}, {}", &p, &i, &p * i);
+      p += 1;
+      if !list.contains(&p) {
+        primes.push(p);
+        break;
+      }
+    }
+  }
+  println!("THREE FINISH");
+  primes
+}
+
 
 pub fn get_factors(n: u64) -> Vec<u64> {
   let mut my_vec = Vec::new();
