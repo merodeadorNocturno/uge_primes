@@ -14,8 +14,7 @@ pub fn make_vector() -> Vec<u64> {
 
 }
 
-pub fn greatest_product(digits: u32) -> Vec<u64> {
-  let my_vector:Vec<u64> = make_vector();
+pub fn greatest_product(digits: u32, my_vector: Vec<u64>) -> Vec<u64> {
   let mut products_vector: Vec<u64> = Vec::new();
   let mut my_cache: u64 = 1;
   let l = my_vector.len() as usize;

@@ -1,20 +1,20 @@
 use std::time::Instant;
-
+use std::thread;
 
 mod examples;
 use examples::two::fibonacci;
 
-use examples::three::{get_factors, is_prime};
+use examples::three::{get_factors, is_prime, get_primes};
 
 use examples::five::{ vector_maker, compare_vectors, iterative };
 
 use examples::six::{ square_vec, vector_maker_64 };
 
-use examples::eight::greatest_product;
+use examples::eight::{ greatest_product, make_vector };
 
 use examples::nine::pythagorean;
 
-use examples::ten::{ counter, sum_primes };
+use examples::ten::{ counter, sum_primes, twitter };
 
 // primes
 
@@ -32,7 +32,6 @@ fn main() {
 
     // const EULER_3: u64 = 600851475143;
     const EULER_3: u64 = 6008;
-
 
     println!("Hello, world! {:?}", &fibonacci(33));
     println!("Hello, world! {:?}", _my_result);
@@ -57,10 +56,12 @@ fn main() {
 
     // FACTORS
 
-    // const UPPER_LIMIT:u32 = 300000000;
+    let _iterative_thread = thread::spawn(move || {
+        const UPPER_LIMIT:u32 = 300000000;
 
-    // let _result: Vec<u32> = iterative(UPPER_LIMIT);
-    // println!("RESULT {:?}", &_result);
+        let _result: Vec<u32> = iterative(UPPER_LIMIT);
+        println!("*********** RESULT upperLimit {:?}", &_result);
+    });
 
     // SUM OF SQUARES
 
@@ -91,7 +92,6 @@ fn main() {
 
     println!("sum of squares: {:?}", &sum_of_squares);
 
-
     let _total:u64 = square_of_sum - sum_of_squares;
 
     println!("Euler 6: {}", &_total);
@@ -101,7 +101,9 @@ fn main() {
     println!("Adjacent");
 
     let mut result:&u64 = &0;
-    let my_vec:Vec<u64> = greatest_product(13);
+
+    let _adj_vector: Vec<u64> = make_vector();
+    let my_vec:Vec<u64> = greatest_product(13, _adj_vector);
 
     for i in &my_vec {
         if i > result {
@@ -118,12 +120,28 @@ fn main() {
 
     println!("**************** SUM PRIME 2000000 EULER 10 ****************");
 
+    const N: u64 = 210000;
 
-    // println!("{:?}", &my_vec);
+    let _handle = thread::spawn(|| {
+        let new_prime = Instant::now();
+        let new_vec: Vec<u64> = get_primes(N - 16000);
+        let _new_sum_of_primes = sum_primes(new_vec);
+        let new_prime_end = Instant::now();
+        println!("NEW Addition {}, duration: {:?}",_new_sum_of_primes, new_prime_end.duration_since(new_prime));
+    });
+
     let prime_init = Instant::now();
-    let my_vec: Vec<u64> = counter();
+    let my_vec: Vec<u64> = counter(N);
     let _sum_of_primes = sum_primes(my_vec);
     let prime_end = Instant::now();
-
     println!("Addition {}, duration: {:?}", _sum_of_primes, prime_end.duration_since(prime_init));
+    
+    _handle.join().unwrap();
+    _iterative_thread.join().unwrap();
+
+    // @ugesaurio
+
+    let _uge_primes = counter(1000000);
+
+    println!("{:?}", twitter(_uge_primes));
 }
