@@ -30,7 +30,7 @@ pub fn create_matrix() -> Vec<Vec<u64>> {
 
 
 pub fn analyze_matrix() -> u64 {
-  let my_matrix:Vec<Vec<u64>> = create_matrix();
+  let _my_matrix:Vec<Vec<u64>> = create_matrix();
 
 
   1234345

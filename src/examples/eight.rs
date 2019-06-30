@@ -20,7 +20,7 @@ pub fn greatest_product(digits: u32, my_vector: Vec<u64>) -> Vec<u64> {
   let l = my_vector.len() as usize;
   let mut should_break:bool = false;
 
-  for (i, item) in my_vector.clone().iter().enumerate() {
+  for (i, _item) in my_vector.clone().iter().enumerate() {
     let x = i as usize;
     for j in 0..digits {
       let y = j as usize;

@@ -25,17 +25,17 @@ pub fn twitter(my_vec: Vec<u64>) -> Vec<u64> {
   let mut solutions: Vec<u64> = Vec::new();
 
   let vec_1: Vec<u64> = my_vec.clone();
-  let vec_2: Vec<u64> = my_vec.clone();
-  let vec_3: Vec<u64> = my_vec.clone();
-  let vec_4: Vec<u64> = my_vec.clone();
 
   for p in &vec_1 {
-    for q in &vec_2 {
-      for r in &vec_3 {
-        for s in &vec_4 {
+   for q in &vec_1 {
+     for r in &vec_1 {
+       for s in &vec_1 {
           if p < q && q < r && r < s {
-            if p.pow(2) + q + s == p * q * r {
-              let solution: u64 = p.pow(2) * q * s;
+            let p_squared = p.pow(2);
+            let my_sum = p_squared + q + s;
+            let my_mult = p * q * r;
+            if my_sum == my_mult {
+              let solution: u64 = p_squared * q * s - 1;
               solutions.push(solution)
             }
           }

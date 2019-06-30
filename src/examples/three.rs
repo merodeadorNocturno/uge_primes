@@ -27,10 +27,6 @@ pub fn is_prime_32(my_number: u32) -> bool {
 
   if my_number % 2 == 0 {
     is_my_number_prime = false;
-  } else if my_number == 1 {
-    is_my_number_prime = false
-  } else if my_number == 2 {
-    is_my_number_prime = false;
   }
   else if my_number > 5 && my_number % 5 == 0 {
     is_my_number_prime = false;

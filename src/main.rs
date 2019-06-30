@@ -57,7 +57,7 @@ fn main() {
     // FACTORS
 
     let _iterative_thread = thread::spawn(move || {
-        const UPPER_LIMIT:u32 = 300000000;
+        const UPPER_LIMIT:u32 = 3000000;
 
         let _result: Vec<u32> = iterative(UPPER_LIMIT);
         println!("*********** RESULT upperLimit {:?}", &_result);
@@ -139,9 +139,15 @@ fn main() {
     _handle.join().unwrap();
     _iterative_thread.join().unwrap();
 
+    println!("**************** UGESAURIO ****************");
     // @ugesaurio
 
-    let _uge_primes = counter(1000000);
+    let _uge_instant = Instant::now();
+    let _uge_primes = counter(100);
+    let _twitter_primes = twitter(_uge_primes);
+    let _uge_instant_end = Instant::now();
 
-    println!("{:?}", twitter(_uge_primes));
+    println!("UGE duration: {:?}", _uge_instant_end.duration_since(_uge_instant));
+
+    println!("{:?}", &_twitter_primes);
 }
