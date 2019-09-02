@@ -143,7 +143,7 @@ fn main() {
     // @ugesaurio
 
     let _uge_instant = Instant::now();
-    let _uge_primes = counter(100);
+    let _uge_primes = counter(10);
     let _twitter_primes = twitter(_uge_primes);
     let _uge_instant_end = Instant::now();
 
