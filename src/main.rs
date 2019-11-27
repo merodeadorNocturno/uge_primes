@@ -9,7 +9,6 @@ use examples::ten::{counter, get_solutions, sum_primes};
 fn main() {
   const N: u64 = 1250;
   let prime_init = Instant::now();
-  // let my_vec: Vec<u64> = counter(N);
   let _uge_instant = Instant::now();
   let _uge_primes = counter(N);
   let _sum_of_primes = sum_primes(&_uge_primes);

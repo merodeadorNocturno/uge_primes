@@ -64,13 +64,10 @@ pub fn is_prime_32(my_number: u32) -> bool {
 
 #[allow(dead_code)]
 pub fn get_primes(n: u64) -> Vec<u64> {
-  // println!("THREE Start");
-
   let mut p: u64 = 2;
 
   let mut list: Vec<u64> = Vec::new();
   let mut primes: Vec<u64> = Vec::new();
-  // let mut done: bool = false;
 
   primes.push(2);
 
@@ -92,7 +89,6 @@ pub fn get_primes(n: u64) -> Vec<u64> {
       }
     }
   }
-  // println!("THREE FINISH");
   primes
 }
 
