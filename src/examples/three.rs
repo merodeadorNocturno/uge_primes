@@ -1,7 +1,6 @@
 // Primes
 
 pub fn is_prime(my_number: u64) -> bool {
-
   let mut is_my_number_prime: bool = true;
   if my_number % 2 == 0 {
     is_my_number_prime = false;
@@ -18,22 +17,19 @@ pub fn is_prime(my_number: u64) -> bool {
   }
 
   is_my_number_prime
-
 }
 
 pub fn is_prime_32(my_number: u32) -> bool {
-
   let mut is_my_number_prime: bool = true;
 
   if my_number % 2 == 0 {
     is_my_number_prime = false;
-  }
-  else if my_number > 5 && my_number % 5 == 0 {
+  } else if my_number > 5 && my_number % 5 == 0 {
     is_my_number_prime = false;
   } else if my_number > 3 && my_number % 3 == 0 {
     is_my_number_prime = false;
   } else if my_number > 7 && my_number % 7 == 0 {
-	is_my_number_prime = false;
+    is_my_number_prime = false;
   } else if my_number > 11 && my_number % 11 == 0 {
     is_my_number_prime = false;
   } else if my_number > 13 && my_number % 13 == 0 {
@@ -45,8 +41,14 @@ pub fn is_prime_32(my_number: u32) -> bool {
   } else if my_number > 23 && my_number % 23 == 0 {
     is_my_number_prime = false;
   } else if my_number > 29 && my_number % 29 == 0 {
-    is_my_number_prime = false;}
-  
+    is_my_number_prime = false;
+  } else if my_number > 31 && my_number % 31 == 0 {
+    is_my_number_prime = false;
+  } else if my_number > 37 && my_number % 37 == 0 {
+    is_my_number_prime = false;
+  } else if my_number > 41 && my_number % 41 == 0 {
+    is_my_number_prime = false;
+  }
 
   if is_my_number_prime == true {
     for i in (3..my_number).rev() {
@@ -57,11 +59,10 @@ pub fn is_prime_32(my_number: u32) -> bool {
   }
 
   is_my_number_prime
-
 }
 
 pub fn get_primes(n: u64) -> Vec<u64> {
-  println!("THREE Start");
+  // println!("THREE Start");
 
   let mut p: u64 = 2;
 
@@ -89,10 +90,9 @@ pub fn get_primes(n: u64) -> Vec<u64> {
       }
     }
   }
-  println!("THREE FINISH");
+  // println!("THREE FINISH");
   primes
 }
-
 
 pub fn get_factors(n: u64) -> Vec<u64> {
   let mut my_vec = Vec::new();
