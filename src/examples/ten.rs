@@ -21,7 +21,7 @@ pub fn sum_primes (my_vec: &Vec<u64>) -> u64 {
   my_vec.iter().sum()
 }
 
-pub fn twitter(my_vec: Vec<u64>) -> Vec<u64> {
+pub fn get_solutions(my_vec: Vec<u64>) -> Vec<u64> {
   let mut solutions: Vec<u64> = Vec::new();
 
   let vec_1: Vec<u64> = my_vec.clone();
