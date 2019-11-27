@@ -4,10 +4,10 @@
 
 ### Solves this problem by bruteForce:
 
-Los números `p < q < r < s` son cuatro primos tales que
+Numbers `p < q < r < s` are four prime numbers such that
 ```
 (p*p) + q + s == pqr
 
 rs - 1 = pq + [(p*p)(q*q)] + [(p*p*p)(q*q*q)]
 ```
-Encuentra el valor de `(p*p)qs - 1`
+Find the value for `(p*p)qs - 1`
