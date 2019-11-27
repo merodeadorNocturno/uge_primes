@@ -25,6 +25,7 @@ pub fn get_solutions(my_vec: Vec<u64>) -> Vec<u64> {
   let mut solutions: Vec<u64> = Vec::new();
 
   let vec_1: Vec<u64> = my_vec.clone();
+  // println!("vec_1: {:?}", &my_vec);
 
   for p in &vec_1 {
    for q in &vec_1 {
@@ -35,8 +36,13 @@ pub fn get_solutions(my_vec: Vec<u64>) -> Vec<u64> {
             let my_sum = p_squared + q + s;
             let my_mult = p * q * r;
             if my_sum == my_mult {
-              let solution: u64 = p_squared * q * s - 1;
-              solutions.push(solution)
+              if (r * s - 1) == (p * q) + (p.pow(2) * q.pow(2)) + (p.pow(3) * q.pow(3)) {
+                println!("rs-1: {}", r * s -1);
+                println!("p.pow2 + q + s: {} ... my_mult {}", &my_sum,  &my_mult);
+                println!("p: {} q: {} r: {} s: {}", &p, &q, &r, &s);
+                let solution: u64 = p_squared * q * s - 1;
+                solutions.push(solution)
+              }
             }
           }
         }
