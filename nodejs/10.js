@@ -2,34 +2,15 @@ const isPrime = (myNumber = 7) => {
   let isMyNumberPrime = true;
 
   if (myNumber % 2 === 0) {
-    isMyNumberPrime = false;
-  } else if (myNumber > 3 && myNumber % 3 === 0) {
-    isMyNumberPrime = false;
-  } else if (myNumber > 5 && myNumber % 5 === 0) {
-    isMyNumberPrime = false;
-  } else if (myNumber > 7 && myNumber % 7 === 0) {
-    isMyNumberPrime = false;
-  } else if (myNumber > 11 && myNumber % 11 === 0) {
-    isMyNumberPrime = false;
-  } else if (myNumber > 13 && myNumber % 13 === 0) {
-    isMyNumberPrime = false;
-  } else if (myNumber > 17 && myNumber % 17 === 0) {
-    isMyNumberPrime = false;
-  } else if (myNumber > 19 && myNumber % 19 === 0) {
-    isMyNumberPrime = false;
-  } else if (myNumber > 23 && myNumber % 23 === 0) {
-    isMyNumberPrime = false;
-  } else if (myNumber > 29 && myNumber % 29 === 0) {
-    isMyNumberPrime = false;
+    return false;
   }
 
-  if (isMyNumberPrime) {
-    for (let i = 3; i < myNumber; i++) {
-      if (myNumber % i === 0) {
-        isMyNumberPrime = false;
-      } 
+  for (let i = 3; i < myNumber; i++) {
+    const modulus = myNumber % i;
+    if (modulus === 0) {
+      isMyNumberPrime = false;
     } 
-  }
+  } 
 
   return isMyNumberPrime;
 };
@@ -38,18 +19,14 @@ const counter = (upTo = 1) => {
   const myArr = [2];
 
   for (i = 3; i < upTo; i++) {
-    if (i % 2 !== 0) {
-      if (isPrime(i)) {
-        myArr.push(i);
-      }
+    if (i % 2 !== 0 && isPrime(i)) {
+      myArr.push(i);
     }
   }
   return myArr;
 };
 
-const twitter = (myArr = [7]) => {
-  return simpleForSolution(myArr);
-}
+const twitter = (myArr = [7]) => simpleForSolution(myArr);
 
 const simpleForSolution = (myArr = [7]) => {
   let solutions = [];
@@ -101,9 +78,14 @@ const forOfSolution = (myArr = [7]) => {
   return solutions;
 }
 
-console.time('start');
-const ugePrimes = counter(1000);
+const searchNumber = 1250;
+console.time('duration');
+const ugePrimes = counter(searchNumber);
 const myTwit = twitter(ugePrimes);
-console.timeEnd('start');
+const addition = ugePrimes.reduce((acc, item) => acc + item, 0);
+console.timeEnd('duration');
+console.log('Search Number:', searchNumber);
+console.log('Addition:', addition);
 
 // console.log(JSON.stringify(myTwit, null, 2));
+
