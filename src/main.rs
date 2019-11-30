@@ -1,9 +1,7 @@
-// use std::thread;
 use std::time::Instant;
 
 mod examples;
 use examples::ten::{counter, get_solutions, sum_primes};
-
 // primes
 
 fn main() {

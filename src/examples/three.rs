@@ -1,6 +1,5 @@
 // Primes
 #[allow(dead_code)]
-
 pub fn is_prime(my_number: u64) -> bool {
   let mut is_my_number_prime: bool = true;
   if my_number % 2 == 0 {
