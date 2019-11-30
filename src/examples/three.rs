@@ -10,7 +10,7 @@ pub fn is_prime(my_number: u64) -> bool {
     is_my_number_prime = false;
   }
 
-  for i in (3..my_number).rev() {
+  for i in (3..my_number).step_by(2) {
     if my_number % i == 0 {
       is_my_number_prime = false;
     }

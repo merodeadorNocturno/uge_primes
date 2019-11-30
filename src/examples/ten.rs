@@ -5,11 +5,9 @@ pub fn counter(up_to: u64) -> Vec<u64> {
 
   my_vec.push(2);
 
-  for i in 3..up_to {
-    if i % 2 != 0 {
-      if is_prime_32(i as u32) {
-        my_vec.push(i as u64);
-      }
+  for i in (3..up_to).step_by(2) {
+    if is_prime_32(i as u32) {
+      my_vec.push(i as u64);
     }
   }
   my_vec
@@ -34,7 +32,7 @@ pub fn get_solutions(my_vec: Vec<u64>) -> Vec<u64> {
             let my_sum = p_squared + q + s;
             let my_mult = _pq * r;
             if my_sum == my_mult {
-              if (r * s - 1) == (p * q) + (p.pow(2) * q.pow(2)) + (p.pow(3) * q.pow(3)) {
+              if (r * s - 1) == (_pq) + (p.pow(2) * q.pow(2)) + (p.pow(3) * q.pow(3)) {
                 println!("rs-1: {}", r * s - 1);
                 println!("p: {} q: {} r: {} s: {}", &p, &q, &r, &s);
                 println!("p.pow2 + q + s: {} ... my_mult {}", &my_sum, &my_mult);

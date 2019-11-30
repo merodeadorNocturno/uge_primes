@@ -41,11 +41,19 @@ const simpleForSolution = (myArr = [7]) => {
           let s = myArr[l];
           if (p < q && q < r && r < s) {
             const pSquared = p * p;
+            const qSquared = q * q;
             const mySum = pSquared + q + s;
-            const myMult = p * q * r;
+            const pq = p * q;
+            const myMult = pq * r;
+            const r_s_1 = r * s - 1;
             if (mySum === myMult) {
-              const solution = pSquared * q * s - 1;
-              solutions.push(solution);
+              if (r_s_1 === (pq) + (pSquared * qSquared) + (pSquared * p * qSquared * q)) {
+                console.log(`rs-1 = ${r_s_1}`);
+                console.log(`p: ${p}, q: ${q}, r: ${r}, s: ${s}`);
+                console.log(`p.pow2 + q + s: ${mySum} --- myMult: ${myMult}`);
+                const solution = pSquared * q * s - 1;
+                solutions.push(solution);
+              }
             }
           }
         }
@@ -64,11 +72,19 @@ const forOfSolution = (myArr = [7]) => {
         for (s of myArr) {
           if (p < q && q < r && r < s) {
             const pSquared = p * p;
+            const qSquared = q * q;
             const mySum = pSquared + q + s;
             const myMult = p * q * r;
+            const r_s_1 = r * s - 1;
             if (mySum === myMult) {
-              const solution = pSquared * q * s - 1;
-              solutions.push(solution);
+              console.log(`p: ${p}, q: ${q}, r: ${r}, s: ${s}`);
+              if (r_s_1 === (p * q) + (pSquared * qSquared) + (pSquared * p * qSquared * q)) {
+                console.log(`rs-1 = ${r_s_1}`);
+                console.log(`p: ${p}, q: ${q}, r: ${r}, s: ${s}`);
+                console.log(`p.pow2 + q + s: ${mySum} --- myMult: ${myMult}`);
+                const solution = pSquared * q * s - 1;
+                solutions.push(solution);
+              }
             }
           }
         }
@@ -87,5 +103,6 @@ console.timeEnd('duration');
 console.log('Search Number:', searchNumber);
 console.log('Addition:', addition);
 
+console.log(myTwit);
 // console.log(JSON.stringify(myTwit, null, 2));
 
